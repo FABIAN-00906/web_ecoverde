@@ -13,6 +13,7 @@ services:
     networks:
       - ecoverde-net
 
+
   respaldo:
     image: alpine
     container_name: ecoverde-respaldo
@@ -22,8 +23,10 @@ services:
     networks:
       - ecoverde-net
 
+
 volumes:
   ecoverde-vol:
 
 networks:
   ecoverde-net:
+    driver: bridge
