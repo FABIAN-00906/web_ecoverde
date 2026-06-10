@@ -1,0 +1,29 @@
+services:
+
+  web:
+    build: .
+    container_name: ecoverde-web
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - ecoverde-vol:/usr/share/nginx/html
+
+    networks:
+      - ecoverde-net
+
+  respaldo:
+    image: alpine
+    container_name: ecoverde-respaldo
+
+    command: tail -f /dev/null
+
+    networks:
+      - ecoverde-net
+
+volumes:
+  ecoverde-vol:
+
+networks:
+  ecoverde-net:
